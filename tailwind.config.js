@@ -2,7 +2,17 @@
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        muted: "var(--muted)",
+      },
+      spacing: {
+        7.5: "1.875rem",
+        15: "3.75rem",
+      },
+    },
   },
   plugins: [],
 };
