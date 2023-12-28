@@ -1,5 +1,5 @@
-import { Header } from "@/_components/header";
-import { NewsPage } from "@/news/page";
+import { Header } from "@/app/_components/header";
+import { NewsPage } from "@/app/news/page";
 
 export default function Layout() {
   return (

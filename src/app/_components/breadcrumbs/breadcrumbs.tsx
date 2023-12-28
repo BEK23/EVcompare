@@ -1,6 +1,6 @@
 import ChevronRight from "@assets/chevron-right";
 
-import { cn } from "../../../lib/utils";
+import { cn } from "@/lib/utils";
 
 type BreadcrumbsProps = {
   breadcrumbs: { title: string }[];
@@ -20,7 +20,7 @@ export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
           </div>
         </>
       ))}
-      <hr className="grow rounded-full border-2 border-muted" />
+      <hr className="grow translate-y-[1px] rounded-full border-2 border-muted" />
     </div>
   );
 };
