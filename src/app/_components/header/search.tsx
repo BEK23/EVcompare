@@ -5,7 +5,13 @@ import { useDebounce } from "@/hooks/useDebounce";
 import { cn } from "@/lib/utils";
 import { useNewsStore } from "@/store/news.store";
 
-export const Search = ({ className }: { className?: ClassValue }) => {
+export const Search = ({
+  className,
+  autoFocus,
+}: {
+  className?: ClassValue;
+  autoFocus?: boolean;
+}) => {
   const [search, setSearch] = useState("");
   const debouncedSearch = useDebounce(search, 1000);
 
@@ -24,6 +30,7 @@ export const Search = ({ className }: { className?: ClassValue }) => {
 
   return (
     <input
+      autoFocus={autoFocus}
       onChange={handleSearchChange}
       placeholder="Найдите ваш электромобиль"
       className={cn(
