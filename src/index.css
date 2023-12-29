@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --background: hsl(223, 7%, 19%);
+        --foreground: hsl(0, 0%, 100%);
+
+        --muted: hsl(220, 1%, 59%);
+    }
+}
+
+@layer base {
+    body {
+        @apply bg-background text-foreground font-montserrat;
+    }
+}
