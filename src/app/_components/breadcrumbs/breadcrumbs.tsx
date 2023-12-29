@@ -9,7 +9,7 @@ type BreadcrumbsProps = {
 
 export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
   return (
-    <div className="flex items-center gap-3.5 text-xl font-semibold">
+    <div className="flex items-center gap-3.5 text-xs font-semibold md:text-sm lg:text-xl">
       <div className="cursor-pointer">Main Page</div>
       {breadcrumbs.map((item, index) => (
         <React.Fragment key={index}>

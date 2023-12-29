@@ -36,7 +36,10 @@ export const Pagination = ({
 
   return (
     <div
-      className={cn("flex justify-center gap-5 text-lg font-medium", className)}
+      className={cn(
+        "flex justify-center gap-5 text-sm sm:text-base md:text-lg font-medium",
+        className,
+      )}
     >
       <div
         onClick={() => onChange(0)}
