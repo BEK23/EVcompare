@@ -18,10 +18,15 @@ export default {
       },
       animation: {
         "fade-up": "fadeUp 1s ease-in-out",
+        "fade-down": "fadeDown 1s ease-in-out",
       },
       keyframes: () => ({
         fadeUp: {
           "0%": { opacity: 0, transform: "translate(0, 2rem)" },
+          "100%": { opacity: 100 },
+        },
+        fadeDown: {
+          "0%": { opacity: 0, transform: "translate(0, -2rem)" },
           "100%": { opacity: 100 },
         },
       }),
