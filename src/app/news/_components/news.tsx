@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 
 import { getNews } from "@/api/news.api";
+import { Pagination } from "@/app/_components/pagination";
 import { NewsItem } from "@/app/news/_components/news.item";
 
 export const News = () => {
@@ -9,10 +10,13 @@ export const News = () => {
   });
 
   return (
-    <div className="grid grid-cols-1 gap-x-10 gap-y-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-      {newsQuery.data?.products.map((item) => (
-        <NewsItem key={item.id} {...item} />
-      ))}
-    </div>
+    <>
+      <div className="mb-20 grid grid-cols-1 gap-x-10 gap-y-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        {newsQuery.data?.products.map((item) => (
+          <NewsItem key={item.id} {...item} />
+        ))}
+      </div>
+      {newsQuery.data && <Pagination {...newsQuery.data} className="mb-10" />}
+    </>
   );
 };
