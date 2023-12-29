@@ -16,6 +16,15 @@ export default {
       fontFamily: {
         montserrat: ["Montserrat", ...defaultTheme.fontFamily.sans],
       },
+      animation: {
+        "fade-up": "fadeUp 1s ease-in-out",
+      },
+      keyframes: () => ({
+        fadeUp: {
+          "0%": { opacity: 0, transform: "translate(0, 2rem)" },
+          "100%": { opacity: 100 },
+        },
+      }),
     },
   },
   plugins: [],
