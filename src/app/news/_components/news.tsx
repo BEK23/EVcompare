@@ -9,6 +9,7 @@ import { useNewsStore } from "@/store/news.store";
 
 export const News = () => {
   const news = useNewsStore((state) => state.news);
+  const search = useNewsStore((state) => state.search);
   const pagination = useNewsStore((state) => ({
     total: state.total,
     skip: state.skip,
@@ -18,7 +19,7 @@ export const News = () => {
   const setNews = useNewsStore((state) => state.setState);
 
   const { isLoading } = useQuery(
-    ["news", { limit: pagination.limit, skip: pagination.skip, q: "" }],
+    ["news", { limit: pagination.limit, skip: pagination.skip, q: search }],
     getNews,
     {
       select: (response) => response.data,

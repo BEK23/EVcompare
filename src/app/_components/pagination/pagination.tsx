@@ -26,9 +26,11 @@ export const Pagination = ({
 
   const range = useMemo(
     () =>
-      Array(right - left)
-        .fill(left)
-        .map((x, y) => x + y),
+      right > left
+        ? Array<number>(right - left)
+            .fill(left)
+            .map((x, y) => x + y)
+        : [],
     [left, right],
   );
 
@@ -63,15 +65,17 @@ export const Pagination = ({
 
       {right < count - 1 && "..."}
 
-      <div
-        onClick={() => onChange(count - 1)}
-        className={cn(
-          "cursor-pointer",
-          current === count - 1 && "font-bold text-[#E1242D]",
-        )}
-      >
-        {count}
-      </div>
+      {count !== 1 && (
+        <div
+          onClick={() => onChange(count - 1)}
+          className={cn(
+            "cursor-pointer",
+            current === count - 1 && "font-bold text-[#E1242D]",
+          )}
+        >
+          {count}
+        </div>
+      )}
     </div>
   );
 };

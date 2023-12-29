@@ -7,6 +7,7 @@ type NewsStoreStateType = {
   total: number;
   skip: number;
   limit: number;
+  search: string;
 };
 
 type NewsStoreActionType = {
@@ -17,6 +18,7 @@ const initialState: NewsStoreStateType = {
   total: 0,
   skip: 0,
   limit: 8,
+  search: "",
 };
 
 export const useNewsStore = create<NewsStoreStateType & NewsStoreActionType>()(
