@@ -31,25 +31,33 @@ export const News = () => {
 
   return (
     <>
-      <div
-        className={cn(
-          "min-h-[490px] relative mb-20 grid grid-cols-1 gap-x-10 gap-y-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 transition",
-          isLoading && "animate-pulse opacity-70 group/disabled",
-        )}
-      >
-        {news?.map((item) => <NewsItem key={item.id} {...item} />)}
-        {isLoading && (
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-150">
-            <Loader />
+      {news && news.length > 1 ? (
+        <>
+          <div
+            className={cn(
+              "min-h-[490px] relative mb-20 grid grid-cols-1 gap-x-10 gap-y-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 transition",
+              isLoading && "animate-pulse opacity-70 group/disabled",
+            )}
+          >
+            {news?.map((item) => <NewsItem key={item.id} {...item} />)}
+            {isLoading && (
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-150">
+                <Loader />
+              </div>
+            )}
           </div>
-        )}
-      </div>
-      {news && (
-        <Pagination
-          {...pagination}
-          onChange={(index) => setNews({ skip: index * pagination.limit })}
-          className="mb-10"
-        />
+          {news && (
+            <Pagination
+              {...pagination}
+              onChange={(index) => setNews({ skip: index * pagination.limit })}
+              className="mb-10"
+            />
+          )}
+        </>
+      ) : (
+        <div className="mt-20 text-center text-3xl text-muted md:mt-52">
+          Нет новости <br /> <br /> <span className="text-4xl">┗( T﹏T )┛</span>
+        </div>
       )}
     </>
   );
